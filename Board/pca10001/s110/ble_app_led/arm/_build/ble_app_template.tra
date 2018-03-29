@@ -1,0 +1,34 @@
+*** Creating Trace Output File '.\_build\ble_app_template.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\_build\arm_startup_nrf51.o"'
+### List of Objects: adding '".\_build\system_nrf51.o"'
+### List of Objects: adding '".\_build\main.o"'
+### List of Objects: adding '".\_build\ble_led.o"'
+### List of Objects: adding '".\_build\ble_srv_common.o"'
+### List of Objects: adding '".\_build\ble_error_log.o"'
+### List of Objects: adding '".\_build\pstorage.o"'
+### List of Objects: adding '".\_build\crc16.o"'
+### List of Objects: adding '".\_build\ble_advdata.o"'
+### List of Objects: adding '".\_build\app_scheduler.o"'
+### List of Objects: adding '".\_build\app_timer.o"'
+### List of Objects: adding '".\_build\ble_conn_params.o"'
+### List of Objects: adding '".\_build\softdevice_handler.o"'
+### List of Objects: adding '".\_build\app_button.o"'
+### List of Objects: adding '".\_build\app_gpiote.o"'
+### List of Objects: adding '".\_build\ble_debug_assert_handler.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0 ".\_build\arm_startup_nrf51.o" ".\_build\system_nrf51.o" ".\_build\main.o" ".\_build\ble_led.o" ".\_build\ble_srv_common.o" ".\_build\ble_error_log.o" ".\_build\pstorage.o" ".\_build\crc16.o" ".\_build\ble_advdata.o" ".\_build\app_scheduler.o" ".\_build\app_timer.o" ".\_build\ble_conn_params.o" ".\_build\softdevice_handler.o" ".\_build\app_button.o" ".\_build\app_gpiote.o" ".\_build\ble_debug_assert_handler.o" --strict --scatter ".\_build\ble_app_template.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\_build\ble_app_template.map" -o ".\_build\ble_app_template.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\_build\ble_app_template.axf'
+### ADS-LD Command File: '.\_build\ble_app_template.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\_build\ble_app_template.lnp', Handle=0x000002B8
+### Writing '.lnp' file
+### ADS-LD Command file '.\_build\ble_app_template.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.
