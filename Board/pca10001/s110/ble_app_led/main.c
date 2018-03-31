@@ -8,7 +8,6 @@
  * This file is the main file for the application described in application note
  * nAN-36 Creating Bluetooth?Low Energy Applications Using nRF51822.
  */
-
 #include <stdint.h>
 #include <string.h>
 #include "nordic_common.h"
@@ -32,6 +31,7 @@
 #include "pstorage.h"
 #include "ble_led.h"
 #include "oled.h"
+#include "simple_uart.h"
 //#include "bsp.h"
 
 #define IS_SRVC_CHANGED_CHARACT_PRESENT 0                                           /**< Include or not the service_changed characteristic. if not enabled, the server's database cannot be changed for the lifetime of the device*/
@@ -215,16 +215,22 @@ static void advertising_init(void)
 
 static void led_write_handler(ble_lbs_t * p_lbs, uint8_t led_state)
 {
+		uint8_t led_value[1] = {0};
+		led_value[0] = led_state;
     if (led_state)
     {
-        nrf_gpio_pin_set(LEDBUTTON_LED_PIN_NO);
+      nrf_gpio_pin_set(LEDBUTTON_LED_PIN_NO);
 			nrf_gpio_pin_set(LED_write_0x01_on);
+		  simple_uart_putstring(led_value);//
+			OLED_ShowChar(32,0,led_state+'0'); 
     }
     else
     {
-        nrf_gpio_pin_clear(LEDBUTTON_LED_PIN_NO);
+      nrf_gpio_pin_clear(LEDBUTTON_LED_PIN_NO);
 			nrf_gpio_pin_clear(LED_write_0x01_on);
     }
+		
+
 }
 
 
@@ -552,6 +558,7 @@ int main(void)
     timers_init();
     gpiote_init();
     buttons_init();//基本外设初始化
+		simple_uart_config(RTS_PIN_NUMBER, TX_PIN_NUMBER, CTS_PIN_NUMBER, RX_PIN_NUMBER, HWFC);
 	
     ble_stack_init();//蓝牙协议栈初始化
     scheduler_init(); //功能的事件调度初始化   
@@ -569,7 +576,7 @@ int main(void)
     for (;;)
     {
         app_sched_execute();
-        power_manage();
+        //power_manage();
     }
 }
 
